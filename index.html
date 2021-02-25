@@ -1,97 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>주소검색</title>
-    <style>
-        #renderArea {
-            border: 2px solid red;
-            min-height: 30px;
-            background-color: #ffd931;
-        }
-
-        #addressField {
-            border: 2px solid blue;
-            min-height: 20px;
-
-        }
-
-        body {
-            margin: 0;
-            background-color: #ffd931;
-        }
-    </style>
+    <title>GroomerNote Address Search</title>
+    <link rel="styleSheet" href="./asset/index.css" />
 
 </head>
 
 <body>
 
-    <button onclick="daumPostSearch()">
-        주소검색 버튼
-    </button>
-    <div id="addressField">ex) 해운대구 동로 123-1</div>
+ 
+    <input type="text" id="addressField" onclick="daumPostSearch()" readonly placeholder="주소를 검색해보세요">
     <div id="renderArea">
     </div>
-
-
+    <input type="text" id="subAddressField" placeholder="상세 주소를 입력해주세요">
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script>
-        function daumPostSearch(
-        ) {
-            let element_wrap = document.querySelector('#renderArea');
-
-            let currentScroll = Math.max(
-                document.body.scrollTop,
-                document.documentElement.scrollTop
-            );
-
-            new daum.Postcode({
-                oncomplete: function (data) {
-
-
-                    let addr = "";
-
-
-                    alert(addr)
-
-                    document.querySelector('#addressField').innerText = addr; //주소 정보를 해당 필드에 넣는다.
-                    // 주소로 상세 정보를 검색하는 부분
-
-                    element_wrap.style.height = "0px";
-                    element_wrap.style.borderWidth = "0px";
-
-                    // 우편번호 찾기 화면이 보이기 이전으로 scroll 위치를 되돌린다.
-                    document.body.scrollTop = currentScroll;
-                },
-
-                width: "100%",
-                height: "440px",
-                animation: true,
-                theme: themeObj,
-            }).embed(element_wrap);
-
-            element_wrap.style.height = "444px";
-            element_wrap.style.borderWidth = "1.5px";
-        }
-
-        // 주소 검색창 Theme
-        let themeObj = {
-            bgColor: "#FCFBFA", //바탕 배경색
-            searchBgColor: "#FFDF87", //검색창 배경색
-            contentBgColor: "#FFFFFF", //본문 배경색(검색결과,결과없음,첫화면,검색서제스트)
-            pageBgColor: "#FCFBFA", //페이지 배경색
-            textColor: "#403B32", //기본 글자색
-            queryTextColor: "#1E1B17", //검색창 글자색
-            //postcodeTextColor: "", //우편번호 글자색
-            //emphTextColor: "", //강조 글자색
-            outlineColor: "#cecbc6", //테두리
-        };
-
-    </script>
-
+   
+    <script src="./asset/index.min.js"></script>
 
 </body>
 

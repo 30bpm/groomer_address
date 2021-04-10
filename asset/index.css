@@ -4,6 +4,11 @@
 
 body {
   margin: 0;
+  /* border: 5px solid green; */
+  min-height: 100vh;
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }
 @font-face {
   font-family: "SpoqaHanSansNeo";
@@ -39,5 +44,7 @@ body {
   display: none;
 }
 #renderArea {
-  margin-top: 10px;
+  /* padding: 10px; */
+  /* border: 10px solid red; */
+  height: 100%;
 }
